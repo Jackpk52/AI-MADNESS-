@@ -1,0 +1,17 @@
+{
+  "name": "chaos-bot",
+  "version": "1.0.0",
+  "description": "Discord AI Bot with Memory",
+  "main": "index.js",
+  "scripts": {
+    "start": "node run.js",
+    "deploy": "node deploy-commands.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1"
+  },
+  "engines": {
+    "node": ">=16.9.0"
+  }
+}
