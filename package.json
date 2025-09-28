@@ -1,0 +1,37 @@
+{
+  "name": "chaos-bot",
+  "version": "1.0.0",
+  "description": "Discord AI Bot with DeepSeek AI and memory features - Created by MK Brothers",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node run.js",
+    "dev": "node --trace-deprecation run.js",
+    "deploy": "node deploy-commands.js",
+    "bot": "node index.js",
+    "setup": "npm install && node deploy-commands.js",
+    "test": "echo \"🤖 Chaos Bot is ready!\" && exit 0"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "ai",
+    "deepseek",
+    "huggingface",
+    "chaos-bot",
+    "mk-brothers",
+    "discord.js",
+    "chatbot"
+  ],
+  "author": "MK Brothers",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1",
+    "openai": "^4.20.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+} 
