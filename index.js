@@ -31,14 +31,23 @@ const client = new Client({
 
 client.commands = new Collection();
 
-// Load commands
+// Load commands using dynamic imports with file:// URLs
 const commandsPath = path.join(__dirname, "commands");
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith(".js"));
 
 for (const file of commandFiles) {
-    const commandModule = await import(path.join(commandsPath, file));
-    const command = commandModule.default || commandModule;
-    client.commands.set(command.data.name, command);
+    const filePath = path.join(commandsPath, file);
+    const fileUrl = new URL(`file://${filePath}`).href;
+    
+    try {
+        const commandModule = await import(fileUrl);
+        const command = commandModule.default || commandModule;
+        if (command.data) {
+            client.commands.set(command.data.name, command);
+        }
+    } catch (error) {
+        console.error(`❌ Failed to load command ${file}:`, error);
+    }
 }
 
 // FIXED: Use 'ready' event instead of 'clientReady'
